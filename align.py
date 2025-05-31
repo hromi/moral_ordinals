@@ -9,19 +9,19 @@ from datasets import load_dataset
 from peft import get_peft_model, LoraConfig, TaskType, prepare_model_for_kbit_training
 
 prompts={
-    "ibm-granite/granite-3.1-3b-a800m-instruct":"<|start_of_role|>system<|end_of_role|>YOU_PROMPT\n<|start_of_role|>user<|end_of_role|>{instruction}\n<|start_of_role|>assistant<|end_of_role|>{response}<|end_of_text|>",
-    "tiiuae/Falcon3-3B-Instruct":"YOU_PROMPT {instruction} \n<|assistant|>{response}",
-    "google/gemma-2-2b-it":"<bos>bos><start_of_turn>user\nYOU_PROMPT\n\n{instruction}<end_of_turn>\n<start_of_turn>model\n{response}<end_of_turn>",
-    "mistralai/Mistral-7B-Instruct-v0.3":"<s>[INST]YOU_PROMPT {instruction}[/INST] {response}</s>",
-    "Qwen/Qwen2.5-3B-Instruct":"<|im_start|>system\nYOU_PROMPT<|im_end|>\n<|im_start|>user\n{instruction}<|im_end|>\n<|im_start|>assistant\n{response}",
-    "microsoft/phi-4-mini-instruct":"<|system>YOU_PROMPT<|end|><|user|>{instruction}.<|end|><|assistant|>{response}<|end|>",
+    "ibm-granite/granite-3.1-3b-a800m-instruct":"<|start_of_role|>system<|end_of_role|>YOU_PROMPT\n<|start_of_role|>user<|end_of_role|>{I}\n<|start_of_role|>assistant<|end_of_role|>{U}<|end_of_text|>",
+    "tiiuae/Falcon3-3B-Instruct":"YOU_PROMPT {I} \n<|assistant|>{U}",
+    "google/gemma-2-2b-it":"<bos>bos><start_of_turn>user\nYOU_PROMPT\n\n{I}<end_of_turn>\n<start_of_turn>model\n{U}<end_of_turn>",
+    "mistralai/Mistral-7B-Instruct-v0.3":"<s>[INST]YOU_PROMPT {I}[/INST] {U}</s>",
+    "Qwen/Qwen2.5-3B-Instruct":"<|im_start|>system\nYOU_PROMPT<|im_end|>\n<|im_start|>user\n{I}<|im_end|>\n<|im_start|>assistant\n{U}",
+    "microsoft/phi-4-mini-instruct":"<|system>YOU_PROMPT<|end|><|user|>{I}.<|end|><|assistant|>{U}<|end|>",
     "meta-llama/Llama-3.2-3B-Instruct":"""<|begin_of_text|><|start_header_id|>system<|end_header_id|>
 
 YOU_PROMPT<|eot_id|><|start_header_id|>user<|end_header_id|>
 
-{instruction}<|eot_id|><|start_header_id|>assistant<|end_header_id|>
+{I}<|eot_id|><|start_header_id|>assistant<|end_header_id|>
 
-{response}<|eot_id|>""",
+{U}<|eot_id|>""",
 }
 
 def format_example(example,prompt):
