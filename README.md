@@ -69,3 +69,4 @@ Codex `.cdx` file is a dataset for alignment of instruct language models. It con
 ## Links
 C.f. also Hromada, D. (2025). Results and Logs Dataset for Article "Moral Ordinals, Axiometry and Alignment of Values in Small Instruct Language Models" [Data set]. Joint IACAP/AISB Conference on Philosophy of Computing and AI (IACAP/AISB-25), University of Twente (NL). Zenodo. https://doi.org/10.5281/zenodo.15562566
 
+this is a branch curated by Zau
